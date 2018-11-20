@@ -5,7 +5,7 @@ from kivy.uix.button import Button
 import os
 import os.path
 
-class MedusaApp(App):
+class AthenaApp(App):
 
     def build(self):
         parent = Widget()
@@ -21,4 +21,4 @@ class MedusaApp(App):
         os.system("start cmd /c " + exeFile + " hahahaha")
 
 if __name__ == '__main__':
-    MedusaApp().run()
+    AthenaApp().run()
