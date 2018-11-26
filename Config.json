@@ -1,0 +1,418 @@
+{
+    "Width": 540.0,
+    "Height": 775.0,
+    "Commands": [
+      {
+        "Caption": "Generate Project Files",
+        "CommandType": "BatchCommand",
+        "CommandString": "GenerateProjectFiles.bat",
+        "GroupName": "Generate Project",
+        "TabName": "Common",
+        "HotKey": "Ctrl+G",
+        "Parameters": [
+          {
+            "ParameterName": "",
+            "ParameterDisplayName": "",
+            "ParameterType": "OneOfOrNone",
+            "SelectedIndex": -1,
+            "ParameterCollection": [
+              {
+                "Caption": "VisualStudio 2017",
+                "Parameter": "-2017",
+                "ToolTip": "For visual studio 2017. If there is only VS2017 installed, no need to tick this."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Caption": "Build Editor",
+        "CommandType": "BatchCommand",
+        "CommandString": "BuildEditor.bat",
+        "GroupName": "Build Editor",
+        "TabName": "Common",
+        "HotKey": "F7",
+        "SpecialCommandFlag": "BuildEditor",
+        "Parameters": [
+          {
+            "ParameterName": "",
+            "ParameterDisplayName": "",
+            "ParameterType": "OneOfOrNone",
+            "SelectedIndex": -1,
+            "ParameterCollection": [
+              {
+                "Caption": "VisualStudio 2017",
+                "Parameter": "-2017",
+                "ToolTip": "For visual studio 2017. If there is only VS2017 installed, no need to tick this."
+              }
+            ]
+          },
+          {
+            "ParameterName": "",
+            "ParameterDisplayName": "",
+            "ParameterType": "OneOfOrNone",
+            "SelectedIndex": -1,
+            "ParameterCollection": [
+              {
+                "Caption": "DebugGame",
+                "Parameter": "--debug-game"
+              }
+            ]
+          },
+          {
+            "ParameterName": "",
+            "ParameterDisplayName": "",
+            "ParameterType": "OneOfOrNone",
+            "SelectedIndex": -1,
+            "ParameterCollection": [
+              {
+                "Caption": "Skip ShaderCompiler",
+                "Parameter": "--no-shader-compiler"
+              }
+            ]
+          },
+          {
+            "ParameterName": "",
+            "ParameterDisplayName": "",
+            "ParameterType": "OneOfOrNone",
+            "SelectedIndex": -1,
+            "ParameterCollection": [
+              {
+                "Caption": "Skip Lightmass",
+                "Parameter": "--no-lightmass"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Caption": "Delete .lib files",
+        "CommandType": "BatchCommand",
+        "CommandString": "DeleteLibs.bat",
+        "GroupName": "Build Editor",
+        "TabName": "Common",
+        "HotKey": ""
+      },
+      {
+        "Caption": "Run Editor",
+        "CommandType": "BatchCommand",
+        "CommandString": "RunAssociatedEngine.cmd",
+        "GroupName": "Editor",
+        "TabName": "Common",
+        "HotKey": "F5",
+        "StartNoConsoleWindow": true,
+        "Parameters": [
+          {
+            "ParameterName": "",
+            "ParameterDisplayName": "",
+            "ParameterType": "OneOfOrNone",
+            "SelectedIndex": -1,
+            "ParameterCollection": [
+              {
+                "Caption": "DebugGame",
+                "Parameter": "-Debug"
+              }
+            ]
+          },
+          {
+            "ParameterName": "RunEditorHmdType",
+            "ParameterDisplayName": "HMD Type",
+            "ParameterType": "OneOf",
+            "SelectedIndex": 1,
+            "ParameterCollection": [
+              {
+                "Caption": "NoHmd",
+                "Parameter": "-nohmd"
+              },
+              {
+                "Caption": "Default",
+                "Parameter": ""
+              },
+              {
+                "Caption": "SteamVR",
+                "Parameter": "-hmd=SteamVR"
+              },
+              {
+                "Caption": "OculusRift",
+                "Parameter": "-hmd=OculusRift"
+              },
+              {
+                "Caption": "GoogleVR",
+                "Parameter": "-hmd=googlevrhmd"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Caption": "Run Game",
+        "CommandType": "BatchCommand",
+        "CommandString": "RunAssociatedEngine.cmd",
+        "GroupName": "Game",
+        "TabName": "Common",
+        "HotKey": "",
+        "StartNoConsoleWindow": true,
+        "Parameters": [
+          {
+            "ParameterName": "",
+            "ParameterDisplayName": "",
+            "ParameterType": "Mandatory",
+            "SelectedIndex": 0,
+            "ParameterCollection": [
+              {
+                "Caption": "",
+                "Parameter": "-log -game -resx=1280 -resy=720 -windowed"
+              }
+            ]
+          },
+          {
+            "ParameterName": "",
+            "ParameterDisplayName": "",
+            "ParameterType": "OneOfOrNone",
+            "SelectedIndex": -1,
+            "ParameterCollection": [
+              {
+                "Caption": "DebugGame",
+                "Parameter": "-Debug"
+              }
+            ]
+          },
+          {
+            "ParameterName": "RunGameHmdType",
+            "ParameterDisplayName": "HMD Type",
+            "ParameterType": "OneOf",
+            "SelectedIndex": 2,
+            "ParameterCollection": [
+              {
+                "Caption": "NoHmd",
+                "Parameter": "-nohmd"
+              },
+              {
+                "Caption": "Default",
+                "Parameter": ""
+              },
+              {
+                "Caption": "SteamVR",
+                "Parameter": "-hmd=SteamVR"
+              },
+              {
+                "Caption": "OculusRift",
+                "Parameter": "-hmd=OculusRift"
+              },
+              {
+                "Caption": "GoogleVR",
+                "Parameter": "-hmd=googlevrhmd"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Caption": "Run Server",
+        "CommandType": "BatchCommand",
+        "CommandString": "RunAssociatedEngine.cmd",
+        "GroupName": "Server",
+        "TabName": "Common",
+        "HotKey": "",
+        "StartNoConsoleWindow": true,
+        "Parameters": [
+          {
+            "ParameterName": "",
+            "ParameterDisplayName": "",
+            "ParameterType": "Mandatory",
+            "SelectedIndex": 0,
+            "ParameterCollection": [
+              {
+                "Caption": "",
+                "Parameter": "-log -server"
+              }
+            ]
+          },
+          {
+            "ParameterName": "",
+            "ParameterDisplayName": "",
+            "ParameterType": "OneOfOrNone",
+            "SelectedIndex": -1,
+            "ParameterCollection": [
+              {
+                "Caption": "DebugGame",
+                "Parameter": "-Debug"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Caption": "Quick Sync",
+        "CommandType": "BatchCommand",
+        "CommandString": "FastSync.bat",
+        "GroupName": "Sync",
+        "TabName": "Common",
+        "HotKey": "Ctrl+S",
+        "SpecialCommandFlag": "SyncRepo"
+      },
+      {
+        "Caption": "Open In Explorer",
+        "CommandType": "InternalFunction",
+        "CommandString": "OpenInExplorer",
+        "GroupName": "Project",
+        "TabName": "Common",
+        "HotKey": "Ctrl+O"
+      },
+      {
+        "Caption": "Open In CMD",
+        "CommandType": "InternalFunction",
+        "CommandString": "OpenInCmd",
+        "GroupName": "Project",
+        "TabName": "Common",
+        "HotKey": "Ctrl+C"
+      },
+      {
+        "Caption": "Open In GitBash",
+        "CommandType": "InternalFunction",
+        "CommandString": "OpenInGitBash",
+        "GroupName": "Project",
+        "TabName": "Common",
+        "HotKey": "Ctrl+B"
+      },
+      {
+        "Caption": "Open VS Solution",
+        "CommandType": "BatchCommand",
+        "CommandString": "OpenSln.bat",
+        "GroupName": "Project",
+        "TabName": "Common",
+        "HotKey": "Ctrl+L",
+        "ToolTip": "Open the visual studio solution.",
+        "StartNoConsoleWindow": true
+      },
+      {
+        "Caption": "Start StaticData Editor",
+        "CommandType": "BatchCommand",
+        "CommandString": "StaticDataEditor.bat",
+        "GroupName": "StaticData",
+        "TabName": "Common",
+        "HotKey": "",
+        "SpecialCommandFlag": "StartStaticDataEditor"
+      },
+      {
+        "Caption": "Generate Schemas",
+        "CommandType": "BatchCommand",
+        "CommandString": "GenerateSchemas.bat",
+        "GroupName": "StaticData",
+        "TabName": "Common",
+        "HotKey": ""
+      },
+      {
+        "Caption": "Start FrontEnd",
+        "CommandType": "BatchCommand",
+        "CommandString": "StartFrontend.bat",
+        "GroupName": "Misc",
+        "TabName": "Common",
+        "HotKey": "",
+        "StartNoConsoleWindow": true
+      },
+      {
+        "Caption": "Update Git",
+        "CommandType": "InternalFunction",
+        "CommandString": "UpdateGit",
+        "GroupName": "Misc",
+        "TabName": "Common",
+        "HotKey": "",
+        "SpecialCommandFlag": "GitUpdate"
+      },
+      {
+        "Caption": "Update Git Lfs",
+        "CommandType": "InternalFunction",
+        "CommandString": "UpdateGitLfs",
+        "GroupName": "Misc",
+        "TabName": "Common",
+        "HotKey": "",
+        "SpecialCommandFlag": "GitLfsUpdate"
+      },
+      {
+        "Caption": "Update Game Localization",
+        "CommandType": "BatchCommand",
+        "CommandString": "UpdateGameLocalization.bat",
+        "GroupName": "Localization",
+        "TabName": "Tools",
+        "HotKey": ""
+      },
+      {
+        "Caption": "Make Package",
+        "CommandType": "BatchCommand",
+        "CommandString": "GenericPackage.cmd",
+        "GroupName": "Package",
+        "TabName": "Tools",
+        "HotKey": "",
+        "Parameters": [
+          {
+            "ParameterName": "PlatformType",
+            "ParameterDisplayName": "Platform",
+            "ParameterType": "OneOf",
+            "SelectedIndex": 2,
+            "ParameterCollection": [
+              {
+                "Caption": "Win64",
+                "Parameter": "Win64"
+              },
+              {
+                "Caption": "Android",
+                "Parameter": "Android"
+              },
+              {
+                "Caption": "IOS",
+                "Parameter": "IOS"
+              },
+              {
+                "Caption": "PS4",
+                "Parameter": "PS4"
+              },
+              {
+                "Caption": "WindowsServer",
+                "Parameter": "WindowsServer"
+              }
+            ]
+          },
+          {
+            "ParameterName": "ClientConfigType",
+            "ParameterDisplayName": "Client Config",
+            "ParameterType": "OneOf",
+            "SelectedIndex": 0,
+            "ParameterCollection": [
+              {
+                "Caption": "Development",
+                "Parameter": "Development"
+              },
+              {
+                "Caption": "Debug",
+                "Parameter": "Debug"
+              },
+              {
+                "Caption": "Shipping",
+                "Parameter": "Shipping"
+              },
+              {
+                "Caption": "Test",
+                "Parameter": "Test"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Caption": "Get UnrealEngine",
+        "CommandType": "InlineCommand",
+        "CommandString": "start \\\\shihai-pc\\shared\\UnrealEngines",
+        "GroupName": "Engine",
+        "TabName": "Tools",
+        "StartNoConsoleWindow": true
+      },
+      {
+        "Caption": "Deploy to iOS",
+        "CommandType": "BatchCommand",
+        "CommandString": "DeployIOSBuild.cmd",
+        "GroupName": "Package",
+        "TabName": "Tools"
+      }
+    ]
+  }
