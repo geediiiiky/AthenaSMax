@@ -1,0 +1,40 @@
+{
+    "commands": [
+        {
+            "startNoConsoleWindow": false,
+            "isFavorite": false,
+            "commandStr": "Test.bat",
+            "groupName": "Generate Project",
+            "tooltip": "command tooltip",
+            "disabled": false,
+            "caption": "Generate Project Files",
+            "tabName": "Common",
+            "hotKey": "",
+            "parameters": {},
+            "type": "ScriptCommand"
+        },
+        {
+            "startNoConsoleWindow": false,
+            "isFavorite": false,
+            "commandStr": "Test.bat",
+            "groupName": "Test Group",
+            "tooltip": "this is just a test",
+            "disabled": false,
+            "caption": "Run Test",
+            "tabName": "Common",
+            "hotKey": "",
+            "parameters": {
+                "ParamA": {
+                    "selectedIndex": 0,
+                    "type": "OneOf",
+                    "displayName": "Parameter",
+                    "collection": {
+                        "aaa": "-aaa",
+                        "bbb": "-bbb"
+                    }
+                }
+            },
+            "type": "ScriptCommand"
+        }
+    ]
+}
