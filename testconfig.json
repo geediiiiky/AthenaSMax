@@ -10,22 +10,77 @@
             "caption": "Generate Project Files",
             "tabName": "Common",
             "hotKey": "",
-            "parameters": {},
+            "parameters": {
+                "VS2017": {
+                    "selectedIndex": -1,
+                    "type": "OnOff",
+                    "displayName": "VS2017",
+                    "collection": [
+                        {
+                            "Caption": "VisualStudio 2017",
+                            "Parameter": "-2017",
+                            "ToolTip": "For visual studio 2017. If there is only VS2017 installed, no need to tick this."
+                        }
+                    ]
+                }
+            },
             "type": "ScriptCommand"
         },
         {
-            "startNoConsoleWindow": false,
-            "isFavorite": false,
+            "caption": "Build Editor",
+            "type": "ScriptCommand",
             "commandStr": "Test.bat",
-            "groupName": "Generate Project",
-            "tooltip": "command tooltip",
-            "disabled": false,
-            "caption": "Generate Project Files hahahaha",
+            "groupName": "Build Editor",
             "tabName": "Common",
             "hotKey": "",
-            "parameters": {},
-            "type": "ScriptCommand"
-        },
+            "parameters": {
+                "VS2017": {
+                  "displayName": "",
+                  "type": "OnOff",
+                  "selectedIndex": -1,
+                  "collection": [
+                    {
+                      "Caption": "VisualStudio 2017",
+                      "Parameter": "-2017",
+                      "ToolTip": "For visual studio 2017. If there is only VS2017 installed, no need to tick this."
+                    }
+                  ]
+                },
+                "DebugGame": {
+                  "displayName": "",
+                  "type": "OnOff",
+                  "selectedIndex": -1,
+                  "collection": [
+                    {
+                      "Caption": "DebugGame",
+                      "Parameter": "--debug-game"
+                    }
+                  ]
+                },
+                "SkipShaderCompiler": {
+                  "displayName": "",
+                  "type": "OnOff",
+                  "selectedIndex": -1,
+                  "collection": [
+                    {
+                      "Caption": "Skip ShaderCompiler",
+                      "Parameter": "--no-shader-compiler"
+                    }
+                  ]
+                },
+                "SkipLightMass": {
+                  "displayName": "",
+                  "type": "OnOff",
+                  "selectedIndex": -1,
+                  "collection": [
+                    {
+                      "Caption": "Skip Lightmass",
+                      "Parameter": "--no-lightmass"
+                    }
+                  ]
+                }
+              }
+          },
         {
             "startNoConsoleWindow": false,
             "isFavorite": false,
@@ -41,10 +96,12 @@
                     "selectedIndex": 0,
                     "type": "OneOf",
                     "displayName": "Parameter",
-                    "collection": {
-                        "aaa": "-aaa",
-                        "bbb": "-bbb"
-                    }
+                    "collection": [
+                        {
+                            "aaa": "-aaa",
+                            "bbb": "-bbb"
+                        }
+                    ]
                 }
             },
             "type": "ScriptCommand"

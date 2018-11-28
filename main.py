@@ -6,6 +6,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.tabbedpanel import TabbedPanel
 from kivy.uix.tabbedpanel import TabbedPanelItem
 from kivy.uix.label import Label
+from kivy.uix.checkbox import CheckBox
 from athenaseparator import AthenaSeparator
 from athenaverticalbox import AthenaVerticalBox
 
@@ -55,11 +56,31 @@ class AthenaApp(App):
         return self.root
 
     def presentCommand(self, command):
+        container = AthenaVerticalBox()
         cmdBtn = Button(text=command.caption, size_hint=(None, None))
         cmdBtn.bind(on_release=self.executeCmd)
         cmdBtn.size = self.buttonSize
         cmdBtn.command = command
-        return cmdBtn
+        container.add_widget(cmdBtn)
+        for paramname, parameter in command.parameters.iteritems():
+            if isinstance(parameter, CommandParameter):
+                paramWidget = self.presentParameter(paramname, parameter)
+                if paramWidget is not None:
+                    container.add_widget(paramWidget)
+        return container
+
+    def presentParameter(self, paramname, parameter):
+        if parameter.type == ParameterType.OnOff:
+            if len(parameter.collection) == 1:
+                box = StackLayout(orientation='lr-tb', size_hint=(1,None), height=30)
+                paramCheckbox = CheckBox(size_hint=(None,None), size=(30, 30), active=parameter.selectedIndex==0)
+                paramCheckbox.bind(active=self.on_onoff_parameter_changed)
+                paramCheckbox.parameter = parameter
+                box.add_widget(paramCheckbox)
+                box.add_widget(Label(text=parameter.collection[0].get('Caption', parameter.displayName)
+                                    , size=(200, 30), size_hint=(None,None), halign='left', text_size=(200, None) ))
+                return box
+        return None
 
     def getTabLayout(self, command):
         tabItem = None
@@ -70,6 +91,7 @@ class AthenaApp(App):
         self.root.add_widget(tabItem)
         tabItem.add_widget(BoxLayout(orientation='vertical', size_hint=(1,1)))
         return tabItem.content
+
 
     def getGroupLayout(self, command):
         tabLayout = self.getTabLayout(command)
@@ -82,6 +104,15 @@ class AthenaApp(App):
         label = Label(text=command.groupName, size_hint=(None, None), size=self.groupLabelSize)
         groupLayout.add_widget(label)
         return groupLayout
+
+
+    def on_onoff_parameter_changed(self, checkbox, newActive):
+        if hasattr(checkbox, 'parameter'):
+            parameter = checkbox.parameter
+            if parameter is not None:
+                if isinstance(parameter, CommandParameter):
+                    parameter.selectedIndex = 0 if newActive else -1
+
 
     def executeCmd(self, button):
         exeFile = os.path.join(".", "Scripts", "Windows", button.command.commandStr)

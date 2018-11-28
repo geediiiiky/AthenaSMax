@@ -43,6 +43,6 @@ class CommandParameter():
         self.selectedIndex = 0
         self.displayName = "Parameter"
         self.type = ParameterType.OneOf
-        self.collection = {}
+        self.collection = []
         self.__dict__.update(entries)
         self.type = ParameterType(self.type)
