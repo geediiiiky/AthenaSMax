@@ -17,9 +17,9 @@
                     "displayName": "VS2017",
                     "collection": [
                         {
-                            "Caption": "VisualStudio 2017",
-                            "Parameter": "-2017",
-                            "ToolTip": "For visual studio 2017. If there is only VS2017 installed, no need to tick this."
+                            "caption": "VisualStudio 2017",
+                            "parameter": "-2017",
+                            "tooltip": "For visual studio 2017. If there is only VS2017 installed, no need to tick this."
                         }
                     ]
                 }
@@ -40,9 +40,9 @@
                   "selectedIndex": -1,
                   "collection": [
                     {
-                      "Caption": "VisualStudio 2017",
-                      "Parameter": "-2017",
-                      "ToolTip": "For visual studio 2017. If there is only VS2017 installed, no need to tick this."
+                      "caption": "VisualStudio 2017",
+                      "parameter": "-2017",
+                      "tooltip": "For visual studio 2017. If there is only VS2017 installed, no need to tick this."
                     }
                   ]
                 },
@@ -52,8 +52,8 @@
                   "selectedIndex": -1,
                   "collection": [
                     {
-                      "Caption": "DebugGame",
-                      "Parameter": "--debug-game"
+                      "caption": "DebugGame",
+                      "parameter": "--debug-game"
                     }
                   ]
                 },
@@ -63,8 +63,8 @@
                   "selectedIndex": -1,
                   "collection": [
                     {
-                      "Caption": "Skip ShaderCompiler",
-                      "Parameter": "--no-shader-compiler"
+                      "caption": "Skip ShaderCompiler",
+                      "parameter": "--no-shader-compiler"
                     }
                   ]
                 },
@@ -74,8 +74,8 @@
                   "selectedIndex": -1,
                   "collection": [
                     {
-                      "Caption": "Skip Lightmass",
-                      "Parameter": "--no-lightmass"
+                      "caption": "Skip Lightmass",
+                      "parameter": "--no-lightmass"
                     }
                   ]
                 }
@@ -95,7 +95,7 @@
                 "ParamA": {
                     "selectedIndex": 0,
                     "type": "OneOf",
-                    "displayName": "Parameter",
+                    "displayName": "parameter",
                     "collection": [
                         {
                             "aaa": "-aaa",

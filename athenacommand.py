@@ -2,6 +2,9 @@ import json
 from enum import Enum
 from json_converter import JsonConvert
 
+import os
+import os.path
+
 
 class CommandType(str, Enum):
     ScriptCommand = 'ScriptCommand'   # a script (.bat, .cmd on windows, .sh, .command on mac, etc.)
@@ -36,6 +39,21 @@ class AthenaCommand():
     def __str__(self):
         return '{}'.format(self.tabName + '/' + self.groupName + '/' + self.caption)
 
+    def execute(self):
+        exeFile = os.path.join(".", "Scripts", "Windows", self.commandStr)
+        sysCmd = "start cmd /c " + exeFile + self.makeupParameters()
+        print sysCmd
+        os.system(sysCmd)
+
+    def makeupParameters(self):
+        fullparameter = ''
+        for paramname, parameter in self.parameters.iteritems():
+            param = parameter.makeup()
+            if param is not None:
+                fullparameter = fullparameter + ' ' + param
+        return fullparameter
+
+
 @JsonConvert.register
 class CommandParameter():
 
@@ -46,3 +64,8 @@ class CommandParameter():
         self.collection = []
         self.__dict__.update(entries)
         self.type = ParameterType(self.type)
+
+    def makeup(self):
+        if self.selectedIndex < 0 or self.selectedIndex >= len(self.collection):
+            return None
+        return self.collection[self.selectedIndex].get('parameter')

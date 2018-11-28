@@ -15,8 +15,6 @@ from athenaconfig import *
 
 from json_converter import JsonConvert
 
-import os
-import os.path
 
 '''
 TabbedPanel - root
@@ -77,7 +75,7 @@ class AthenaApp(App):
                 paramCheckbox.bind(active=self.on_onoff_parameter_changed)
                 paramCheckbox.parameter = parameter
                 box.add_widget(paramCheckbox)
-                box.add_widget(Label(text=parameter.collection[0].get('Caption', parameter.displayName)
+                box.add_widget(Label(text=parameter.collection[0].get('caption', parameter.displayName)
                                     , size=(200, 30), size_hint=(None,None), halign='left', text_size=(200, None) ))
                 return box
         return None
@@ -115,8 +113,7 @@ class AthenaApp(App):
 
 
     def executeCmd(self, button):
-        exeFile = os.path.join(".", "Scripts", "Windows", button.command.commandStr)
-        os.system("start cmd /c " + exeFile + " hahahaha")
+        button.command.execute()
 
 if __name__ == '__main__':
     AthenaApp().run()
