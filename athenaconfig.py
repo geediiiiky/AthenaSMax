@@ -1,4 +1,4 @@
-from athena_command import AthenaCommand
+from athenacommand import AthenaCommand
 from json_converter import JsonConvert
 
 @JsonConvert.register
