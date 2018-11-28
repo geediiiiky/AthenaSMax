@@ -4,6 +4,7 @@ from kivy.uix.button import Button
 from kivy.uix.stacklayout import StackLayout
 from kivy.uix.tabbedpanel import TabbedPanel
 from kivy.uix.tabbedpanel import TabbedPanelItem
+from separator import Separator
 
 from athena_command import *
 from athena_config import *
@@ -16,12 +17,17 @@ import os.path
 class AthenaApp(App):
 
     def build(self):
+        self.root = None
         aconfig = JsonConvert.FromFile('testconfig.json')
-        self.root = TabbedPanel(do_default_tab=False)
-        for command in aconfig.commands:
-            layout = self.getHoldingLayout(command)
-            cmdWidget = self.presentCommand(command)
-            layout.add_widget(cmdWidget)
+        if isinstance(aconfig, AthenaConfiguration):
+            self.root = TabbedPanel(do_default_tab=False)
+            for command in aconfig.commands:
+                if isinstance(command, AthenaCommand):
+                    layout = self.getHoldingLayout(command)
+                    cmdWidget = self.presentCommand(command)
+                    separator = Separator()
+                    layout.add_widget(cmdWidget)
+                    layout.add_widget(separator)
         return self.root
 
     def presentCommand(self, command):
